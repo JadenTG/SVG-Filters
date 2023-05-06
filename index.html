@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q1</title>
+</head>
+<body>
+    <svg width = "500" height = "500">
+        <defs>
+            <filter id = "a">
+                <feBlend mode = "screen" in2 = "BackgroundImage" in = "SourceGraphic" />
+            </filter>
+        </defs>
+        <image href = "catwebp.webp" filter = "url(#a)"></image>
+    </svg>
+
+    <svg width = "500" height = "500">
+        <defs>
+            <filter id = "b">
+                <feColorMatrix in = "SourceGraphic" type = "matrix" 
+                values = "   0 0 1 0 0
+                            0 0 0 0 0
+                            1 1 0 0 0 
+                            0 0 0 1 0" />
+            </filter>
+        </defs>
+        <image href = "catwebp.webp" filter = "url(#b)" />
+    </svg>
+
+    <svg width = "500" height = "500">
+        <defs>
+            <filter id = "filter" x = "0" y = "0">
+                <feGaussianBlur in = "SourceGraphic" stdDeviation = "15"/>
+            </filter>
+        </defs>
+        <rect width = "300" height = "300" stroke = "green" stroke-width = "3" fill = "yellow" filter = "url(#filter)"/>
+    </svg>
+
+    <svg viewBox = "0 0 200 100" xmlns = "http://www.w3.org/2000/svg" xmlns:xlink = "http://www.w3.org/1999/xlink"">
+        <defs>
+            <filter id = "c">
+                <feImage xlink:href = "catwebp.webp"/>
+            </filter>
+        </defs>
+        <rect x = "25%" y = "10%" width = "50%" height = "50%" style = "filter:url(#c);"/>
+    </svg>
+
+    <svg width="200" height="200">
+        <defs>
+            <filter id="floodFilter" filterUnits="userSpaceOnUse">
+                <feFlood flood-color="green" flood-opacity="0.5" />
+            </filter>
+        </defs>
+        <use style="filter: url(#floodFilter);" />
+    </svg>
+</body>
+</html>
